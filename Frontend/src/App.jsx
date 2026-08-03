@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState} from 'react'
+import { Container} from 'react-bootstrap'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -11,12 +12,18 @@ export default class App extends Component {
 
   constructor(props){
     super(props);
+    
+  }
+
+  componentDidMount(){
     document.title="Basketball Projections"
   }
 
   render(){  
     return(
-      <Header />
+      <Container>
+          <Header />
+      </Container>
   );
   }
 }
