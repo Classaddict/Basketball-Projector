@@ -6,7 +6,8 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import { Component, NavItem,NavLink } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Header from './Header';
+import Header from './Header'
+import TeamBox from './teamBox';
 
 export default class App extends Component {
 
@@ -23,6 +24,7 @@ export default class App extends Component {
     return(
       <Container>
           <Header />
+          <TeamBox/>
       </Container>
   );
   }
