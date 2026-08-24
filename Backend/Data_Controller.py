@@ -1,4 +1,4 @@
-from server import *;
+from server import connect, exec_commit
 
 class Data_Controller:
     """
@@ -8,5 +8,7 @@ class Data_Controller:
         """
             Returns all data from Fake_Player_Data table
         """
-        sql='''SELECT * FROM FAKE_PLAYER_DATA;''' 
+        sql="""
+            SELECT * FROM PLAYER_DATA;
+        """
         exec_commit(sql)
