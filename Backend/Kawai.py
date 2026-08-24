@@ -9,6 +9,7 @@ class Kawai:
             Takes in the data from the player data database and uses it as data 
             for the machine 
         """
+        
 
     @staticmethod
     def add_features():
