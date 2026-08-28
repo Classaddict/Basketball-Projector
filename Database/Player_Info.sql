@@ -5,7 +5,6 @@ CREATE TABLE IF NOT EXISTS Player_Info(
     last_name VARCHAR(50),
     team INT NOT NULL,
     position INT NOT NULL,
-    age INT not NULL,
     FOREIGN KEY (team) REFERENCES Teams(team_id) 
 );
 
