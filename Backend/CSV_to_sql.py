@@ -1,6 +1,7 @@
 import pandas as pd
 import csv
 import re
+from server import *
 
 class CSV_to_sql:
     @staticmethod
@@ -27,18 +28,33 @@ class CSV_to_sql:
             line=line[0]
             line=line.split(",")
             year=line[0]
+            year=int(year[:4])
             age=line[1]
             minutes_pg=line[3]
             pra=float(line[4])+float(line[5])+float(line[8])
             stock=float(line[6])+float(line[7])
+            try:
+                player_eff=float(line[9])
+                usg=float(line[10])
+                ts=float(line[11])
+                drtg=float(line[12])
+            except Exception as e:
+                player_eff=0
+                usg=0
+            
             sql="""
-                INSERT INTO FAKE_PLAYER_DATA VALUES()
+                INSERT INTO PLAYER_DATA(player,season,age,pra,stock,ts,useage,mins,per,drtg)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
             """
+        exec_commit(sql,(1,year,age,pra,stock,ts,usg,minutes_pg,player_eff,drtg))
         print(year)
         print(age)
         print(minutes_pg)
         print(pra)
         print(stock)
+        print(player_eff)
+        print(usg)
+        print(ts)
+        print(drtg)
             
 
 if __name__=="__main__":
