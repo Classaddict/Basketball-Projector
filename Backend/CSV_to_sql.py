@@ -46,15 +46,6 @@ class CSV_to_sql:
                 INSERT INTO PLAYER_DATA(player,season,age,pra,stock,ts,useage,mins,per,drtg)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
             """
             exec_commit(sql,(1,year,age,pra,stock,ts,usg,minutes_pg,player_eff,drtg))
-        print(year)
-        print(age)
-        print(minutes_pg)
-        print(pra)
-        print(stock)
-        print(player_eff)
-        print(usg)
-        print(ts)
-        print(drtg)
             
 
 if __name__=="__main__":
