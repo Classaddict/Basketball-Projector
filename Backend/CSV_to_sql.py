@@ -2,7 +2,7 @@ import pandas as pd
 import csv
 import re
 from server import *
-
+#TO DO: add controller to get player ID so it doesn't need to be hardcoded. 
 class CSV_to_sql:
     @staticmethod
     def parse_line(line):
@@ -31,8 +31,8 @@ class CSV_to_sql:
             year=int(year[:4])
             age=line[1]
             minutes_pg=line[3]
-            pra=float(line[4])+float(line[5])+float(line[8])
-            stock=float(line[6])+float(line[7])
+            pra=round(float(line[4])+float(line[5])+float(line[8]),2)
+            stock=round(float(line[6])+float(line[7]),2)
             try:
                 player_eff=float(line[9])
                 usg=float(line[10])
@@ -45,7 +45,7 @@ class CSV_to_sql:
             sql="""
                 INSERT INTO PLAYER_DATA(player,season,age,pra,stock,ts,useage,mins,per,drtg)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
             """
-        exec_commit(sql,(1,year,age,pra,stock,ts,usg,minutes_pg,player_eff,drtg))
+            exec_commit(sql,(1,year,age,pra,stock,ts,usg,minutes_pg,player_eff,drtg))
         print(year)
         print(age)
         print(minutes_pg)
